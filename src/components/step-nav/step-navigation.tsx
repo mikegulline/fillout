@@ -5,18 +5,14 @@ import {
   StepButtonAdd,
   Draggable,
   DropResult,
-  useState,
   useCallback,
+  useNavigation,
   StepNavigationWrapper,
 } from '@/components/step-nav/_index';
-import type {
-  StepButtonPageProps,
-  StepNavigationProps,
-  FC,
-} from '@/components/step-nav/_types';
+import type { StepButtonPageProps } from '@/components/step-nav/_types';
 
-export const StepNavigation: FC<StepNavigationProps> = (props) => {
-  const [navigation, setNavigation] = useState(props.buttons);
+export const StepNavigation = () => {
+  const { navigation, setNavigation } = useNavigation();
 
   const handleClick = (index: number) => {
     setNavigation((prev) => {

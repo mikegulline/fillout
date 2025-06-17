@@ -1,7 +1,7 @@
 'use client';
 import {
   StepNavigation,
-  StepProvider,
+  StepNavigationProvider,
   StepScene,
 } from '@/components/step-nav/_index';
 import type { StepButtons } from '@/components/step-nav/_types';
@@ -32,11 +32,11 @@ const navButons: StepButtons = [
 
 export default function Home() {
   return (
-    <StepProvider buttons={navButons}>
+    <StepNavigationProvider buttons={navButons}>
       <div className='w-screen h-screen flex flex-col justify-end items-start'>
         <StepScene />
         <StepNavigation />
       </div>
-    </StepProvider>
+    </StepNavigationProvider>
   );
 }

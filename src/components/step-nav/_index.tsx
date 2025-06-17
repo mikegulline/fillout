@@ -7,6 +7,6 @@ export * from './grab';
 export * from './step-icons';
 export * from './step-navigation';
 export * from './step-navigation-wrapper';
-export * from './step-context';
+export * from './step-navigation-context';
 export * from './step-scene';
 export * from '@hello-pangea/dnd';

@@ -27,11 +27,17 @@ export type StepButtonPageProps = {
 
 export type StepButtons = StepButtonPageProps[];
 
-export type StepNavigationProps = {
-  buttons: StepButtons;
-};
-
 export type GrabProps = {
   active?: boolean;
   dragHandleProps?: React.HTMLAttributes<HTMLElement> | null;
+};
+
+export type StepNavigationContextType = {
+  navigation: StepButtons;
+  setNavigation: React.Dispatch<React.SetStateAction<StepButtons>>;
+};
+
+export type StepNavigationProps = {
+  buttons: StepButtons;
+  children: React.ReactNode;
 };

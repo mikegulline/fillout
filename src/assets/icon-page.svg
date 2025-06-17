@@ -1,5 +1,17 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.2798 2.29167H4.79168C4.33144 2.29167 3.95834 2.66477 3.95834 3.12501V16.875C3.95834 17.3352 4.33144 17.7083 4.79168 17.7083H15.2083C15.6686 17.7083 16.0417 17.3352 16.0417 16.875V8.05352C16.0417 7.8325 15.9539 7.62054 15.7976 7.46426L10.8691 2.53575C10.7128 2.37947 10.5008 2.29167 10.2798 2.29167Z" stroke="#8C93A1" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M7.29166 11.0417H10.2083M7.29166 14.375H12.7083" stroke="#8C93A1" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M10.625 2.70833V6.87499C10.625 7.33523 10.9981 7.70833 11.4583 7.70833H15.625" stroke="#8C93A1" stroke-width="1.5" stroke-linecap="round"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M10.28,2.29h-5.49c-.46,0-.83.37-.83.83v13.75c0,.46.37.83.83.83h10.42c.46,0,.83-.37.83-.83v-8.82c0-.22-.09-.43-.24-.59l-4.93-4.93c-.16-.16-.37-.24-.59-.24Z"/>
+  <path class="st0" d="M7.29,11.04h2.92M7.29,14.38h5.42"/>
+  <path class="st0" d="M10.62,2.71v4.17c0,.46.37.83.83.83h4.17"/>
 </svg>

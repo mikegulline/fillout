@@ -1,8 +1,7 @@
-'use client';
-import { useState } from 'react';
-import { Button, ButtonProps } from '@/components/ui/button';
+import { StepNavigation } from '@/components/ui/step-navigation';
+import { Buttons } from '@/components/ui/button';
 
-const navButons: ButtonProps[] = [
+const navButons: Buttons = [
   {
     name: 'Info',
     icon: 'info',
@@ -26,16 +25,5 @@ const navButons: ButtonProps[] = [
 ];
 
 export default function Home() {
-  const [navigation, setNavigation] = useState(navButons);
-  return (
-    <div className='w-[1140px] h-[72px] p-5'>
-      <ul className='w-[1100px] h-8 justify-start gap-3 rounded-[12px] flex'>
-        {navigation?.map(({ name, icon }: ButtonProps) => (
-          <li key={name}>
-            <Button name={name} icon={icon} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <StepNavigation buttons={navButons} />;
 }

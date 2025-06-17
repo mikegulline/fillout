@@ -5,7 +5,6 @@ export const ButtonAdd = ({ onClick }: { onClick: () => void }) => {
     <button onClick={onClick}>
       <div className='group cursor-pointer flex items-center justify-center w-5 hover:w-14 transition-[width] duration-200 delay-400'>
         <div className='relative h-4 w-full flex items-center justify-center'>
-          <div className='w-full h-0 border-t-[1.5px] border-[#C0C0C0] border-dashed' />
           <div
             className='
       opacity-0 scale-0

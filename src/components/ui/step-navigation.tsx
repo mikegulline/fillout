@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useCallback } from 'react';
 import {
   DragDropContext,
@@ -7,7 +6,11 @@ import {
   Draggable,
   DropResult,
 } from '@hello-pangea/dnd';
-import { Button, type Buttons, type ButtonProps } from '@/components/ui/button';
+import {
+  ButtonPage,
+  type Buttons,
+  type ButtonProps,
+} from '@/components/ui/button-page';
 import { ButtonLast } from '@/components/ui/button-last';
 import { ButtonAdd } from '@/components/ui/button-add';
 
@@ -18,15 +21,30 @@ type StepNavigationProps = {
 export const StepNavigation = ({ buttons }: StepNavigationProps) => {
   const [navigation, setNavigation] = useState(buttons);
 
+  const handleClick = (index: number) => {
+    setNavigation((prev) => {
+      const newNavigation = prev.map((button, i) => {
+        button.active = i === index;
+        return button;
+      });
+      return newNavigation;
+    });
+  };
+
   const handleAddStep = (index: number) => {
     const newElement: ButtonProps = {
       name: 'New Step',
       icon: 'info',
+      active: true,
     };
 
     setNavigation((prev) => {
-      const before = prev.slice(0, index);
-      const after = prev.slice(index);
+      const newNavigation = prev.map((button) => {
+        button.active = false;
+        return button;
+      });
+      const before = newNavigation.slice(0, index);
+      const after = newNavigation.slice(index);
       return [...before, newElement, ...after];
     });
   };
@@ -46,47 +64,61 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
   );
 
   return (
-    <div className='w-[1140px] h-[72px] p-5'>
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <Droppable droppableId='steps' direction='horizontal'>
-          {(provided) => (
-            <ul
-              className='w-[1100px] h-8 justify-start rounded-[12px] flex'
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              {navigation.map(({ name, icon }, i) => (
-                <Draggable
-                  key={name + i}
-                  draggableId={name + icon + i}
-                  index={i}
-                >
-                  {(dragProvided) => (
-                    <li
-                      ref={dragProvided.innerRef}
-                      {...dragProvided.draggableProps}
-                      {...dragProvided.dragHandleProps}
-                      className='flex items-center'
-                    >
-                      {i > 0 && <ButtonAdd onClick={() => handleAddStep(i)} />}
-                      <Button name={name} icon={icon} />
-                    </li>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-              <li className='flex items-center'>
-                {<ButtonAdd onClick={() => handleAddStep(navigation.length)} />}
-                <ButtonLast
-                  handleClick={() => handleAddStep(navigation.length)}
-                  name='Add Page'
-                  icon='plus'
-                />
-              </li>
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
+    <div className='h-[72px] p-5 flex justify-start'>
+      <div>
+        <div className='w-full h-0 border-t-[1.5px] border-[#C0C0C0] border-dashed translate-y-4 z-0' />
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <Droppable droppableId='steps' direction='horizontal'>
+            {(provided) => (
+              <ul
+                className='h-8 justify-start flex relative'
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+              >
+                {navigation.map(({ id, name, icon, active }, i) => (
+                  <Draggable
+                    key={name + id}
+                    draggableId={name + 'grab' + id}
+                    index={i}
+                  >
+                    {(dragProvided) => (
+                      <li
+                        ref={dragProvided.innerRef}
+                        {...dragProvided.draggableProps}
+                        {...dragProvided.dragHandleProps}
+                        className='flex items-center'
+                      >
+                        {i > 0 && (
+                          <ButtonAdd onClick={() => handleAddStep(i)} />
+                        )}
+                        <ButtonPage
+                          name={name}
+                          icon={icon}
+                          active={active}
+                          handleClick={() => handleClick(i)}
+                        />
+                      </li>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+                <li className='flex items-center'>
+                  {
+                    <ButtonAdd
+                      onClick={() => handleAddStep(navigation.length)}
+                    />
+                  }
+                  <ButtonLast
+                    handleClick={() => handleAddStep(navigation.length)}
+                    name='Add Page'
+                    icon='plus'
+                  />
+                </li>
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
     </div>
   );
 };

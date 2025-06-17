@@ -1,22 +1,23 @@
-export type ButtonIcons = 'info' | 'page' | 'check' | 'plus';
+export type { FC, ReactNode } from 'react';
+export type StepButtonIcons = 'info' | 'page' | 'check' | 'plus';
 
-export type ButtonLastProps = {
+export type StepButtonLastProps = {
   name: string;
-  icon: ButtonIcons;
+  icon: StepButtonIcons;
   handleClick: () => void;
 };
 
-export type ButtonPageWrapperProps = {
+export type StepButtonPageWrapperProps = {
   children: React.ReactNode;
   active?: boolean;
   isNew?: boolean;
-  icon: ButtonIcons;
+  icon: StepButtonIcons;
   handleClick?: () => void;
 };
 
-export type ButtonProps = {
+export type StepButtonPageProps = {
   name: string;
-  icon: ButtonIcons;
+  icon: StepButtonIcons;
   id?: number | string;
   active?: boolean;
   isNew?: boolean;
@@ -24,10 +25,10 @@ export type ButtonProps = {
   handleClick?: () => void;
 };
 
-export type Buttons = ButtonProps[];
+export type StepButtons = StepButtonPageProps[];
 
 export type StepNavigationProps = {
-  buttons: Buttons;
+  buttons: StepButtons;
 };
 
 export type GrabProps = {

@@ -1,7 +1,7 @@
-import { StepNavigation } from '@/components/ui/step-navigation';
-import type { Buttons } from '@/components/ui/types';
+import { StepNavigation } from '@/components/step-nav/step-navigation';
+import type { StepButtons } from '@/components/step-nav/_types';
 
-const navButons: Buttons = [
+const navButons: StepButtons = [
   {
     id: 1,
     name: 'Info',
@@ -28,6 +28,7 @@ const navButons: Buttons = [
 export default function Home() {
   return (
     <div className='w-screen h-screen flex justify-start items-end'>
+      <div></div>
       <StepNavigation buttons={navButons} />
     </div>
   );

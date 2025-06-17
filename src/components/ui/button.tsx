@@ -1,21 +1,17 @@
-'use client';
-import { FC, useState, MouseEvent } from 'react';
-import { icons } from '@/components/ui/icons';
-
-export type ButtonIcons = 'info' | 'page' | 'check' | 'plus';
+import { FC, MouseEvent } from 'react';
+import { icons, type ButtonIcons } from '@/components/ui/icons';
 
 export type ButtonState = 'default' | 'hover' | 'focused' | 'active';
 
 export type ButtonProps = {
   name: string;
   icon: ButtonIcons;
+  active?: boolean;
 };
 
 export type Buttons = ButtonProps[];
 
 export const Button: FC<ButtonProps> = ({ name, icon }) => {
-  const [state, setState] = useState<ButtonState>('default');
-
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   };

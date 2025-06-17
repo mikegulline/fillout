@@ -5,6 +5,7 @@ const navButons: Buttons = [
   {
     name: 'Info',
     icon: 'info',
+    active: true,
   },
   {
     name: 'Details',
@@ -17,10 +18,6 @@ const navButons: Buttons = [
   {
     name: 'Ending',
     icon: 'check',
-  },
-  {
-    name: 'Add Page',
-    icon: 'plus',
   },
 ];
 

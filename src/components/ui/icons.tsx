@@ -9,3 +9,5 @@ export const icons = {
   page: <IconPage className='w-5 h-5' />,
   plus: <IconPlus className='w-5 h-5' />,
 };
+
+export type ButtonIcons = 'info' | 'page' | 'check' | 'plus';

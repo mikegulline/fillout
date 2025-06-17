@@ -11,5 +11,3 @@ export const icons = {
   plus: <IconPlus className='w-5 h-5' />,
   grab: <IconGrab className='w-4 h-4' />,
 };
-
-export type ButtonIcons = 'info' | 'page' | 'check' | 'plus';

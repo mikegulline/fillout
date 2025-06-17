@@ -1,14 +1,12 @@
-'use client';
 import { FC } from 'react';
-import { icons, type ButtonIcons } from '@/components/ui/icons';
+import { icons } from '@/components/ui/index';
+import type { ButtonLastProps } from '@/components/ui/types';
 
-export type ButtonProps = {
-  name: string;
-  icon: ButtonIcons;
-  handleClick: () => void;
-};
-
-export const ButtonLast: FC<ButtonProps> = ({ name, icon, handleClick }) => {
+export const ButtonLast: FC<ButtonLastProps> = ({
+  name,
+  icon,
+  handleClick,
+}) => {
   return (
     <button
       onClick={handleClick}

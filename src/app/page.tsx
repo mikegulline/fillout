@@ -1,5 +1,5 @@
 import { StepNavigation } from '@/components/ui/step-navigation';
-import { Buttons } from '@/components/ui/button-page';
+import type { Buttons } from '@/components/ui/types';
 
 const navButons: Buttons = [
   {

@@ -1,22 +1,13 @@
 'use client';
 import { useState, useCallback } from 'react';
+import { ButtonPage, ButtonLast, ButtonAdd } from '@/components/ui/index';
+import type { ButtonProps, StepNavigationProps } from '@/components/ui/types';
 import {
   DragDropContext,
   Droppable,
   Draggable,
   DropResult,
 } from '@hello-pangea/dnd';
-import {
-  ButtonPage,
-  type Buttons,
-  type ButtonProps,
-} from '@/components/ui/button-page';
-import { ButtonLast } from '@/components/ui/button-last';
-import { ButtonAdd } from '@/components/ui/button-add';
-
-type StepNavigationProps = {
-  buttons: Buttons;
-};
 
 export const StepNavigation = ({ buttons }: StepNavigationProps) => {
   const [navigation, setNavigation] = useState(buttons);
@@ -32,10 +23,13 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
   };
 
   const handleAddStep = (index: number) => {
+    const id = Math.floor(Math.random() * 10000) + 100;
     const newElement: ButtonProps = {
       name: 'New Step',
       icon: 'info',
       active: true,
+      isNew: true,
+      id,
     };
 
     setNavigation((prev) => {
@@ -55,7 +49,10 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
 
       if (!destination || source.index === destination.index) return;
 
-      const reordered = Array.from(navigation);
+      const reordered = Array.from(navigation).map((button) => {
+        button.isNew = false;
+        return button;
+      });
       const [moved] = reordered.splice(source.index, 1);
       reordered.splice(destination.index, 0, moved);
       setNavigation(reordered);
@@ -66,7 +63,7 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
   return (
     <div className='h-[72px] p-5 flex justify-start'>
       <div>
-        <div className='w-full h-0 border-t-[1.5px] border-[#C0C0C0] border-dashed translate-y-4 z-0' />
+        <div className='w-full h-0 border-t-[1.5px] border-[#C0C0C0] border-dotted translate-y-4 z-0' />
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId='steps' direction='horizontal'>
             {(provided) => (
@@ -85,7 +82,6 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
                       <li
                         ref={dragProvided.innerRef}
                         {...dragProvided.draggableProps}
-                        {...dragProvided.dragHandleProps}
                         className='flex items-center'
                       >
                         {i > 0 && (
@@ -96,6 +92,7 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
                           icon={icon}
                           active={active}
                           handleClick={() => handleClick(i)}
+                          dragHandleProps={dragProvided.dragHandleProps}
                         />
                       </li>
                     )}

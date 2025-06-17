@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Button, Buttons, ButtonIcons } from '@/components/ui/button';
+import { Button, type Buttons, type ButtonProps } from '@/components/ui/button';
 import { ButtonAdd } from './button-add';
 
 type StepNavigationProps = {
@@ -12,9 +12,9 @@ export const StepNavigation = ({ buttons }: StepNavigationProps) => {
 
   const handleAddStep = (index: number) => {
     setNavigation((prev) => {
-      const newElement = {
+      const newElement: ButtonProps = {
         name: 'New Step',
-        icon: 'info' as ButtonIcons,
+        icon: 'info',
       };
 
       const before = prev.slice(0, index);

@@ -9,4 +9,5 @@ export * from './step-navigation';
 export * from './step-navigation-wrapper';
 export * from './step-navigation-context';
 export * from './step-scene';
+export * from './context-menu';
 export * from '@hello-pangea/dnd';

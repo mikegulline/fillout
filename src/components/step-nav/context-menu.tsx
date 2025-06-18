@@ -14,7 +14,7 @@ export const ContextMenu = () => {
         animate ? 'opacity-100 translate-y-0 ' : 'opacity-0 translate-y-10'
       }  transition-all duration-200 ease-ou`}
     >
-      <div className='w-64 mb-10 border-[0.5px] border-[#E1E1E1] rounded-[12px] shadow-[0px_1px_3px_0px_#0000000A,0px_1px_1px_0px_#00000005] overflow-hidden'>
+      <div className='w-64 mb-10 border-[0.5px] border-[#E1E1E1] rounded-[12px] shadow-[0px_1px_3px_0px_#0000000A,0px_1px_1px_0px_#00000005] overflow-hidden bg-white'>
         <header className='h-10 px-3 bg-[#FAFBFC] border-b-[0.5px] border-b-[#E1E1E1] flex items-center text-base font-medium'>
           Settings
         </header>

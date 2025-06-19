@@ -33,7 +33,7 @@ export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
         ${
           props.active
             ? 'bg-white text-[#1A1A1A] border-[#E1E1E1] shadow-[0px_1px_3px_0px_#0000000A,0px_1px_1px_0px_#00000005]'
-            : 'text-[#677289] bg-[#f0f1f4] hover:bg-[#dadce0] border-transparent'
+            : 'text-[#677289] bg-[#ebecf0] hover:bg-[#dadce0] border-transparent'
         }
       `}
       >

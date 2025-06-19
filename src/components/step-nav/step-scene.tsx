@@ -18,7 +18,7 @@ export const StepScene = () => {
         <br />
         (Click and hold the three dots to drag and reorder buttons.)
         <br />
-        (Hover between buttons to show "add page" button.)
+        (Hover between buttons to show add page button.)
       </p>
     </div>
   );

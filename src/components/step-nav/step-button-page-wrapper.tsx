@@ -25,7 +25,7 @@ export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
         ${animateClasses}
         transition-all duration-200 ease-out
         group flex items-center justify-center gap-1.5 
-        h-8 px-[10px] py-1 rounded-md cursor-pointer text-center
+        h-8 px-[10px] py-1 rounded-lg cursor-pointer text-center
         font-inter font-medium text-sm leading-5 tracking-[-0.015em]
         border-solid border-[0.5px] 
         focus:bg-white focus:text-[#1A1A1A] focus:border-[#2F72E2]

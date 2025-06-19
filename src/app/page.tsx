@@ -33,7 +33,7 @@ const navButons: StepButtons = [
 export default function Home() {
   return (
     <StepNavigationProvider buttons={navButons}>
-      <div className='w-screen h-screen flex flex-col justify-end items-start'>
+      <div className='w-screen h-screen flex flex-col justify-end'>
         <StepScene />
         <StepNavigation />
       </div>

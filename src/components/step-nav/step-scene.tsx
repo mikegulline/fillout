@@ -14,9 +14,9 @@ export const StepScene = () => {
       <p>
         (Click to activate and show three dots.)
         <br />
-        (Righ click on the three dots to open settings menu.)
+        (Click or Righ click on the three dots to open settings menu.)
         <br />
-        (Click and hold the three dots to drag and reorder buttons.)
+        (Click drag and reorder buttons.)
         <br />
         (Hover between buttons to show add page button.)
       </p>

@@ -73,7 +73,7 @@ export const StepNavigation = () => {
           {navigation.map((button, i) => (
             <Draggable
               key={button.name + button.id}
-              draggableId={button.name + 'grab' + button.id}
+              draggableId={button.name + button.id}
               index={i}
             >
               {(dragProvided) => (

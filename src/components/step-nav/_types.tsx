@@ -1,4 +1,4 @@
-export type { FC, ReactNode } from 'react';
+export type { FC, ReactNode, MouseEvent } from 'react';
 export type StepButtonIcons = 'info' | 'page' | 'check' | 'plus';
 
 export type StepButtonLastProps = {
@@ -12,6 +12,7 @@ export type StepButtonPageWrapperProps = {
   active?: boolean;
   isNew?: boolean;
   icon: StepButtonIcons;
+  dragHandleProps?: React.HTMLAttributes<HTMLElement> | null;
   handleClick?: () => void;
 };
 

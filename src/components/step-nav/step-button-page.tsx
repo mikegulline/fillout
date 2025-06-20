@@ -22,9 +22,14 @@ export const StepButtonPage: FC<StepButtonPageProps> = (props) => {
         active={props.active}
         icon={props.icon}
         isNew={props.isNew}
+        dragHandleProps={props.dragHandleProps}
       >
         <span className='whitespace-nowrap'>{props.name}</span>
-        <div onContextMenu={handleContextMenu}>
+        <div
+          onContextMenu={handleContextMenu}
+          onClick={handleContextMenu}
+          className='cursor-pointer'
+        >
           <Grab active={props.active} dragHandleProps={props.dragHandleProps} />
         </div>
       </StepButtonPageWrapper>

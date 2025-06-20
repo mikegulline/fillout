@@ -2,6 +2,7 @@ import { icons, useState, useEffect } from '@/components/step-nav/_index';
 import type {
   StepButtonPageWrapperProps,
   FC,
+  MouseEvent,
 } from '@/components/step-nav/_types';
 
 export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
@@ -17,11 +18,17 @@ export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
     ? 'opacity-0 scale-0 w-0'
     : 'opacity-100 scale-100 w-full';
 
+  const hanleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (props.handleClick) props.handleClick();
+  };
   return (
-    <div>
-      <button
-        onClick={props.handleClick}
-        className={`
+    <button
+      role='button'
+      tabIndex={0}
+      onClick={(e) => hanleClick(e)}
+      {...props.dragHandleProps}
+      className={`
         ${animateClasses}
         transition-all duration-200 ease-out
         group flex items-center justify-center gap-1.5 
@@ -36,16 +43,15 @@ export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
             : 'text-[#677289] bg-[#ebecf0] hover:bg-[#dadce0] border-transparent'
         }
       `}
+    >
+      <div
+        className={`${
+          props.active ? 'text-[#F59D0E]' : 'text-[#8C93A1]'
+        } group-focus:text-[#F59D0E]`}
       >
-        <div
-          className={`${
-            props.active ? 'text-[#F59D0E]' : 'text-[#8C93A1]'
-          } group-focus:text-[#F59D0E]`}
-        >
-          {icons[props.icon]}
-        </div>
-        {props.children}
-      </button>
-    </div>
+        {icons[props.icon]}
+      </div>
+      {props.children}
+    </button>
   );
 };

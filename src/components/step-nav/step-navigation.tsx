@@ -59,7 +59,7 @@ export const StepNavigation = () => {
       reordered.splice(destination.index, 0, moved);
       setNavigation(reordered);
     },
-    [navigation]
+    [navigation, setNavigation]
   );
 
   return (

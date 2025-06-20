@@ -2,7 +2,6 @@ import { icons, useState, useEffect } from '@/components/step-nav/_index';
 import type {
   StepButtonPageWrapperProps,
   FC,
-  MouseEvent,
 } from '@/components/step-nav/_types';
 
 export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (

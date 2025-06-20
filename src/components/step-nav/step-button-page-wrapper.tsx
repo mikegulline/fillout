@@ -18,15 +18,11 @@ export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
     ? 'opacity-0 scale-0 w-0'
     : 'opacity-100 scale-100 w-full';
 
-  const hanleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (props.handleClick) props.handleClick();
-  };
   return (
-    <button
+    <div
       role='button'
       tabIndex={0}
-      onClick={(e) => hanleClick(e)}
+      onClick={props.handleClick}
       {...props.dragHandleProps}
       className={`
         ${animateClasses}
@@ -52,6 +48,6 @@ export const StepButtonPageWrapper: FC<StepButtonPageWrapperProps> = (
         {icons[props.icon]}
       </div>
       {props.children}
-    </button>
+    </div>
   );
 };
